@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙叔思维 - 探索与分享</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义动画 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* 玻璃拟态效果 */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-brand-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-100 min-h-screen font-sans transition-colors duration-300">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 glass shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-bold text-2xl tracking-tighter text-brand-600 dark:text-brand-500">龙叔<span class="text-slate-600 dark:text-slate-300">思维</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">首页</a>
+                        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">关于我</a>
+                        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">项目</a>
+                        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">联系</a>
+                    </div>
+                </div>
+                <!-- 深色模式切换 -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 (Hero Section) -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-float mb-8 inline-block">
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-tr from-brand-400 to-indigo-500 flex items-center justify-center text-white text-4xl shadow-lg mx-auto">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                欢迎来到 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-600">龙叔思维</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 dark:text-slate-300">
+                这里是我的个人空间。分享技术、生活与创意的孵化地。
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#projects" class="px-8 py-3 rounded-full bg-brand-600 text-white font-semibold shadow-lg hover:bg-brand-700 transition-transform hover:-translate-y-1">
+                    查看项目
+                </a>
+                <a href="https://github.com" target="_blank" class="px-8 py-3 rounded-full glass font-semibold hover:bg-white/50 dark:hover:bg-slate-700/50 transition-transform hover:-translate-y-1">
+                    Github 主页
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性/关于区域 -->
+    <section id="about" class="py-16 bg-white/50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">关于本站</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 卡片 1 -->
+                <div class="glass p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-brand-500 text-3xl mb-4"><i class="fas fa-code"></i></div>
+                    <h3 class="text-xl font-bold mb-2">技术探索</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        热衷于 Web 开发、人工智能与云计算技术。这里记录着我的学习路径与技术心得。
+                    </p>
+                </div>
+                
+                <!-- 卡片 2 -->
+                <div class="glass p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-indigo-500 text-3xl mb-4"><i class="fas fa-camera-retro"></i></div>
+                    <h3 class="text-xl font-bold mb-2">生活记录</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        不仅仅是代码。摄影、阅读与旅行也是我生活的重要组成部分。
+                    </p>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="glass p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-pink-500 text-3xl mb-4"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="text-xl font-bold mb-2">创意工坊</h3>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        展示各种有趣的独立开发项目和小工具，让创意落地的试验田。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简单的页脚 -->
+    <footer id="contact" class="bg-white dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="flex space-x-6 mb-8">
+                <a href="#" class="text-slate-400 hover:text-brand-500 text-2xl transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/wongyounggpt" class="text-slate-400 hover:text-brand-500 text-2xl transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-500 text-2xl transition-colors"><i class="fab fa-weixin"></i></a>
+                <a href="mailto:mulongfang@gmail.com" class="text-slate-400 hover:text-brand-500 text-2xl transition-colors"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
+                &copy; <span id="year"></span> LSSW.FUN. All rights reserved.
+            </p>
+            <p class="text-slate-400 text-xs mt-2">
+                Hosted on GitHub Pages
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 设置年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 深色模式切换逻辑
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // 检查系统偏好或本地存储
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+    </script>
+</body>
+</html>
